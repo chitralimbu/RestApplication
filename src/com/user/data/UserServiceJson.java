@@ -25,6 +25,13 @@ public class UserServiceJson {
 		return userDao.getAllUsers();
 	}
 	
+	@Path("/{name}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public User getUser(@PathParam("name") String name) {
+		return userDao.getUserByName(name);
+	}
+	
 	@POST
 	@Path("/add/users")
 	@Consumes(MediaType.APPLICATION_JSON)
